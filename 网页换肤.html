@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    #box {
+      width: 100px;
+      height: 100px;
+      background-color: red;
+    }
+  </style>
+</head>
+<body>
+  <input type="button" id="btn" value="变色 "> <br>
+  <br>
+  <div id="box"></div>  
+ 
+  <script>
+    var i=1;
+    document.getElementById('btn').onclick = function () {
+      // 当设置宽度和高度的时候必须带单位，如果不带单位，有错误
+      var box = document.getElementById('box');
+     if(i==1){
+      box.style.width = '200px';
+      box.style.height = '200px';
+      box.style.backgroundColor = 'blue';
+      i=2;
+    } else if (i==2){
+      box.style.width = '100px';
+      box.style.height = '100px';
+      box.style.backgroundColor = 'red';
+      i=1;
+    }
+    }
+    
+
+
+  </script>
+</body>
+</html>

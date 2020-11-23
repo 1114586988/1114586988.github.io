@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+</head>
+
+	<style type="text/css">
+		body{
+			background: gray;
+		}
+		div{
+			margin: 20px auto;
+			width: 350px;
+			height: 150px;
+			border: 1px solid #000;
+			background: white;
+			padding: 10px;
+		}
+		h2{
+			text-align: center;
+		}
+		span{
+			font-size: 15%;
+			color: red;
+			margin: 0 10px;
+		}
+
+	</style>
+	<body>
+		<div>
+		<h2>提交成功</h2>
+		<a href="http://nyjy.cn">
+			<span id="seconds">3</span>秒后系统会自动跳转，也可单击次跳转
+		</a>
+		</div>
+<script type="text/javascript">
+		function timing(secs,url){
+			var seconds=document.getElementById("seconds");
+			seconds.innerHTML=--secs;
+			if(secs>0){
+				setTimout('timing('+secs+',\''+url+'\')',1000);
+			}else{
+				location.href=url;
+			}
+		};
+		timing(3,'http://nyjy.cn');
+
+</script>
+</body>
+</html>

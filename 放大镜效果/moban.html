@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>放大镜效果</title>
+<style type="text/css">
+	        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            width: 350px;
+            height: 350px;
+            margin: 100px;
+            border: 1px solid #ccc;
+            position: relative;
+        }
+
+        .big {
+            width: 400px;
+            height: 400px;
+            position: absolute;
+            top: 0;
+            left: 360px;
+            border: 1px solid #ccc;
+            overflow: hidden;
+            display: none;
+        }
+
+        .big img {
+            position: absolute;
+        }
+
+        .mask {
+            width: 175px;
+            height: 175px;
+            background: rgba(255, 255, 0, 0.4);
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            cursor: move;
+            display: none;
+        }
+
+        .small {
+            position: relative;
+        }
+
+
+</style>
+  
+ 
+</head>
+<body>
+<div class="box" id="box">
+	<div class="small">
+		<img src="images/small.jpg" width="350" alt="" />
+		<div class="mask"></div>
+	</div>
+	<div class="big">
+		
+		<img src="images/big.jpg"width="800" alt="">
+	</div>
+
+
+
+
+</div>
+<script src="common.js"></script>
+  <script >
+  	var box=my$("box");
+  	var smallBox=box.children[0];
+  	var bigBox=box.children[1];
+  	var smallImage=smallBox.children[0];
+  	var mask=smallBox.children[1];
+  	var bigImage=bigBox.children[0];
+
+  	box.onmouseover=function(){
+  		mask.style.display="block";
+  		bigBox.style.display="block"
+  	}
+  		box.onmouseout=function(){
+  		mask.style.display="none";
+  		bigBox.style.display="none"
+  	}
+
+  box.onmousemove=function(e){
+  	e=e||window.event;
+  	var maskX=getPage(e).pageX-box.offsetLeft;
+  	var maskY=getPage(e).pageY-box.offsetTop;
+  	
+
+  	maskX=maskX-mask.offsetWidth/2;
+  	maskY=maskY-mask.offsetHeight/2;
+
+  	maskX=maskX<0?0:maskX;
+  	maskY=maskY<0?0:maskY;
+
+	
+
+  	maskX=maskX>box.offsetWidth-mask.offsetWidth?box.offsetWidth-mask.offsetWidth:maskX;
+  	maskY=maskY>box.offsetWidth-mask.offsetHeight?box.offsetHeight-mask.offsetHeight:maskY;
+
+	mask.style.left=maskX+"px";
+  	mask.style.top=maskY+"px";
+
+  }
+  	
+  </script>
+  
+</body>
+</html>

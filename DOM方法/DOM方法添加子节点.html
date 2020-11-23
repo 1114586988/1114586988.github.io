@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>appendChild效果</title>
+
+  
+ 
+</head>
+<body>
+<button onclick="myFun()">这是啥啊</button>
+  <script >
+  	function myFun(){
+  		var btn=document.createElement("BUTTON");
+  		var t=document.createTextNode("KT猫啊");
+  		btn.appendChild(t);
+  		document.body.appendChild(btn);
+  	}
+  	
+  </script>
+  
+</body>
+</html>
